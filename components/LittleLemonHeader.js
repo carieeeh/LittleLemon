@@ -1,21 +1,26 @@
 import * as React from "react";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
 export default function LittleLemonHeader() {
   return (
-    <View style={{ flex: 0.2, backgroundColor: "#F4CE14" }}>
-      <Text
-        style={{
-          marginTop: 20,
-          padding: 40,
-          fontSize: 30,
-          color: "black",
-          textAlign: "center",
-          fontWeight: "bold",
-        }}
-      >
-        Little Lemon
-      </Text>
+    <View style={headerStyles.container}>
+      <Text style={headerStyles.itemText}>Little Lemon</Text>
     </View>
   );
 }
+
+const headerStyles = StyleSheet.create({
+  container: {
+    flex: 0.2,
+    backgroundColor: "#F4CE14",
+  },
+
+  itemText: {
+    marginTop: 20,
+    padding: 40,
+    fontSize: 30,
+    color: "black",
+    textAlign: "center",
+    fontWeight: "bold",
+  },
+});
