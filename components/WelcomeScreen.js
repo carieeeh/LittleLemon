@@ -1,46 +1,83 @@
-import * as React from "react";
-import { View, Text, ScrollView, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import {
+  ScrollView,
+  Text,
+  StyleSheet,
+  TextInput,
+  KeyboardAvoidingView,
+  Platform,
+} from "react-native";
 
 export default function WelcomeScreen() {
+  const [firstName, onChangeFirstName] = useState("");
+  const [lastName, onChangeLastName] = useState("");
+  const [message, onChangeMessage] = useState("");
   return (
-    <View style={welcomeStyles.container}>
-      <ScrollView
-        indicatorStyle={"white"}
-        style={welcomeStyles.scrollContainer}
-      >
-        <Text style={welcomeStyles.titleText}>Welcome to Little Lemon</Text>
-        <Text style={welcomeStyles.itemText}>
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+    >
+      <ScrollView style={styles.container} keyboardDismissMode="on-drag">
+        <Text style={styles.headerText}>Welcome to Little Lemon</Text>
+        <Text style={styles.regularText}>
           Little Lemon is a charming neighborhood bistro that serves simple food
           and classic cocktails in a lively but casual environment. We would
-          love to hear more about your experience with us ! {"\n"} {"\n"}
-          Come and take a bite! You will surely forget your name!
+          love to hear more about your experience with us!
         </Text>
+        <TextInput
+          style={styles.inputBox}
+          value={firstName}
+          onChangeText={onChangeFirstName}
+          placeholder={"First Name"}
+        />
+        <TextInput
+          style={styles.inputBox}
+          value={lastName}
+          onChangeText={onChangeLastName}
+          placeholder={"Last Name"}
+        />
+        <TextInput
+          style={styles.messageInput}
+          value={message}
+          onChangeText={onChangeMessage}
+          placeholder={"Message"}
+        />
       </ScrollView>
-    </View>
+    </KeyboardAvoidingView>
   );
 }
 
-const welcomeStyles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#495E57",
   },
-  scrollContainer: {
-    paddingHorizontal: 40,
-    paddingVertical: 40,
-  },
-  titleText: {
+  headerText: {
     padding: 40,
-    fontSize: 50,
-    color: "#F4CE14",
-    textAlign: "center",
-    fontWeight: "bold",
-  },
-  itemText: {
     fontSize: 30,
-    padding: 40,
-    marginVertical: 8,
-    color: "#F4CE14",
+    color: "#EDEFEE",
     textAlign: "center",
+  },
+  regularText: {
+    fontSize: 24,
+    padding: 20,
+    marginVertical: 8,
+    color: "#EDEFEE",
+    textAlign: "center",
+  },
+  inputBox: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+    fontSize: 16,
+    backgroundColor: "#EDEFEE",
+  },
+  messageInput: {
+    height: 100,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+    fontSize: 16,
+    backgroundColor: "#EDEFEE",
   },
 });

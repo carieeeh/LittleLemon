@@ -17,7 +17,7 @@ const headerStyles = StyleSheet.create({
 
   itemText: {
     marginTop: 20,
-    padding: 40,
+    padding: 20,
     fontSize: 30,
     color: "black",
     textAlign: "center",
