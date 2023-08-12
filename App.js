@@ -3,7 +3,7 @@ import { View, StyleSheet } from "react-native";
 
 import LittleLemonHeader from "./components/LittleLemonHeader";
 import LittleLemonFooter from "./components/LittleLemonFooter";
-// import WelcomeScreen from "./components/WelcomeScreen";
+import WelcomeScreen from "./components/WelcomeScreen";
 import MenuItems from "./components/MenuItems";
 
 export default function App() {
@@ -11,8 +11,8 @@ export default function App() {
     <>
       <View style={styles.container}>
         <LittleLemonHeader />
-        {/* <WelcomeScreen /> */}
-        <MenuItems />
+        <WelcomeScreen />
+        {/* <MenuItems /> */}
       </View>
       <View style={{ backgroundColor: "#495E57" }}>
         <LittleLemonFooter />
