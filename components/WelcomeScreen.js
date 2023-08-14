@@ -11,7 +11,9 @@ import {
 export default function WelcomeScreen() {
   const [firstName, onChangeFirstName] = useState("");
   const [lastName, onChangeLastName] = useState("");
+  const [phoneNumber, onChangePhoneNumber] = useState("");
   const [message, onChangeMessage] = useState("");
+
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -31,6 +33,7 @@ export default function WelcomeScreen() {
           placeholder={"First Name"}
         />
         <TextInput
+          // secureTextEntry={true} //for passwords
           style={styles.inputBox}
           value={lastName}
           onChangeText={onChangeLastName}
@@ -40,7 +43,16 @@ export default function WelcomeScreen() {
           style={styles.messageInput}
           value={message}
           onChangeText={onChangeMessage}
-          placeholder={"Message"}
+          placeholder={"Please leave a feedback"}
+          multiline={true} //for multiple lines
+          maxLength={250}
+        />
+        <TextInput
+          style={styles.inputBox}
+          value={phoneNumber}
+          onChangeText={onChangePhoneNumber}
+          placeholder={"Phone Number"}
+          keyboardType={"phone-pad"}
         />
       </ScrollView>
     </KeyboardAvoidingView>
