@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 
-import { View, Text, SectionList, StyleSheet } from "react-native";
+import { View, Text, SectionList, StyleSheet, Pressable } from "react-native";
 
 const menuItemsToDisplay = [
   {
@@ -81,6 +81,8 @@ const Item = ({ name, price }) => (
 );
 
 const MenuItems = () => {
+  const [showMenu, setShowMenu] = useState(false);
+
   const renderItem = ({ item }) => <Item name={item.name} price={item.price} />;
 
   const renderSectionHeader = ({ section: { title } }) => (
@@ -91,15 +93,34 @@ const MenuItems = () => {
 
   return (
     <View style={menuStyles.container}>
-      <SectionList
-        sections={menuItemsToDisplay}
-        keyExtractor={(item, index) => item + index}
-        renderItem={renderItem}
-        renderSectionHeader={renderSectionHeader}
-        ListHeaderComponent={Header}
-        ListFooterComponent={Footer}
-        ItemSeparatorComponent={Separator}
-      ></SectionList>
+      {!showMenu && (
+        <Text style={menuStyles.infoSection}>
+          Little Lemon is a charming neighborhood bistro that serves simple food
+          and classic cocktails in a lively but casual environment. View our
+          menu to explore our cuisine with daily specials!
+        </Text>
+      )}
+      <Pressable
+        style={menuStyles.button}
+        onPress={() => {
+          setShowMenu(!showMenu);
+        }}
+      >
+        <Text style={menuStyles.buttonText}>
+          {showMenu ? "Home" : "View Menu"}
+        </Text>
+      </Pressable>
+      {showMenu && (
+        <SectionList
+          sections={menuItemsToDisplay}
+          keyExtractor={(item, index) => item + index}
+          renderItem={renderItem}
+          renderSectionHeader={renderSectionHeader}
+          ListHeaderComponent={Header}
+          ListFooterComponent={Footer}
+          ItemSeparatorComponent={Separator}
+        ></SectionList>
+      )}
     </View>
   );
 };
@@ -124,7 +145,7 @@ const menuStyles = StyleSheet.create({
 
   innerContainer: {
     paddingHorizontal: 40,
-    paddingVertical: 40,
+    paddingVertical: 20,
     backgroundColor: "rgba(0, 0, 0, 0.5)",
     flexDirection: "row", //for same line
     justifyContent: "space-between",
@@ -161,6 +182,29 @@ const menuStyles = StyleSheet.create({
   },
   headerStyle: {
     backgroundColor: "#F4CE14",
+  },
+  button: {
+    fontSize: 22,
+    padding: 10,
+    marginVertical: 8,
+    margin: 40,
+    backgroundColor: "#EDEFEE",
+    borderColor: "#EDEFEE",
+    borderWidth: 2,
+    borderRadius: 12,
+  },
+  buttonText: {
+    color: "#333333",
+    textAlign: "center",
+    fontSize: 32,
+  },
+  infoSection: {
+    fontSize: 24,
+    padding: 20,
+    marginVertical: 8,
+    color: "#EDEFEE",
+    textAlign: "center",
+    backgroundColor: "#495E57",
   },
 });
 export default MenuItems;
