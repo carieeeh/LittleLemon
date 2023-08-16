@@ -1,26 +1,38 @@
-import * as React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React from "react";
+import { View, Image, StyleSheet, Text } from "react-native";
 
-export default function LittleLemonHeader() {
+const Welcome = () => {
   return (
-    <View style={headerStyles.container}>
-      <Text style={headerStyles.itemText}>Little Lemon</Text>
+    <View style={styles.container}>
+      <Image
+        style={styles.logo}
+        source={require("../img/littleLemonHeader.png")}
+      />
+      <Text style={styles.title}>Your Local Mediterranean Bistro</Text>
     </View>
   );
-}
+};
 
-const headerStyles = StyleSheet.create({
+const styles = StyleSheet.create({
+  logo: {
+    height: 100,
+    width: 300,
+    resizeMode: "contain",
+  },
   container: {
     flex: 0.2,
-    backgroundColor: "#F4CE14",
+    padding: 24,
+    marginTop: 30,
+    backgroundColor: "#EDEFEE",
   },
 
-  itemText: {
-    marginTop: 20,
-    padding: 20,
-    fontSize: 30,
-    color: "black",
+  title: {
+    paddingVertical: 10,
+    color: "#495E57",
     textAlign: "center",
+    fontSize: 21,
     fontWeight: "bold",
   },
 });
+
+export default Welcome;
