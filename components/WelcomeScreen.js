@@ -5,6 +5,8 @@ import {
   StyleSheet,
   KeyboardAvoidingView,
   Platform,
+  Image,
+  View,
 } from "react-native";
 
 export default function WelcomeScreen() {
@@ -15,11 +17,49 @@ export default function WelcomeScreen() {
     >
       <ScrollView style={styles.container} keyboardDismissMode="on-drag">
         <Text style={styles.headerText}>Welcome to Little Lemon</Text>
+        <View style={styles.headerWrapper}>
+          <Image
+            style={styles.logo}
+            source={require("../img/littleLemonLogo.png")}
+            resizeMode="cover"
+            accessible={true}
+            accessibilityLabel={"Little Lemon Logo Photo"}
+          />
+        </View>
+
         <Text style={styles.regularText}>
           Little Lemon is a charming neighborhood bistro that serves simple food
           and classic cocktails in a lively but casual environment. We would
           love to hear more about your experience with us!
         </Text>
+        <Image
+          style={styles.image}
+          source={require("../img/Food1.png")}
+          resizeMode="cover"
+          accessible={true}
+          accessibilityLabel={"Food 1 Photo"}
+        />
+        <Image
+          style={styles.image}
+          source={require("../img/Food2.png")}
+          resizeMode="cover"
+          accessible={true}
+          accessibilityLabel={"Food 2 Photo"}
+        />
+        <Image
+          style={styles.image}
+          source={require("../img/Food3.png")}
+          resizeMode="cover"
+          accessible={true}
+          accessibilityLabel={"Food 3 Photo"}
+        />
+        <Image
+          style={styles.image}
+          source={require("../img/Food4.png")}
+          resizeMode="cover"
+          accessible={true}
+          accessibilityLabel={"Food 4 Photo"}
+        />
       </ScrollView>
     </KeyboardAvoidingView>
   );
@@ -28,10 +68,14 @@ export default function WelcomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    padding: 10,
   },
   headerText: {
-    padding: 40,
-    fontSize: 30,
+    paddingRight: 10,
+    paddingLeft: 10,
+    paddingTop: 30,
+    paddingBottom: 10,
+    fontSize: 35,
     color: "#EDEFEE",
     textAlign: "center",
   },
@@ -42,20 +86,21 @@ const styles = StyleSheet.create({
     color: "#EDEFEE",
     textAlign: "center",
   },
-  inputBox: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    padding: 10,
-    fontSize: 16,
-    backgroundColor: "#EDEFEE",
+  image: {
+    width: 350,
+    height: 250,
+    borderRadius: 10,
+    marginBottom: 10,
+    resizeMode: "center",
   },
-  messageInput: {
+  headerWrapper: {
+    flexDirection: "row",
+    justifyContent: "center",
+    margin: 10,
+  },
+  logo: {
+    width: 100,
     height: 100,
-    margin: 12,
-    borderWidth: 1,
-    padding: 10,
-    fontSize: 16,
-    backgroundColor: "#EDEFEE",
+    borderRadius: 20,
   },
 });
