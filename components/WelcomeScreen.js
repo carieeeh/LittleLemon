@@ -23,7 +23,7 @@ export default function WelcomeScreen() {
             source={require("../img/littleLemonLogo.png")}
             resizeMode="cover"
             accessible={true}
-            accessibilityLabel={"Little Lemon Logo Photo"}
+            accessibilityLabel={"Logo Photo"}
           />
         </View>
 
