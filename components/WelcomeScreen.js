@@ -1,3 +1,5 @@
+// Welcome Screen
+
 import React from "react";
 import {
   ScrollView,
@@ -32,6 +34,8 @@ export default function WelcomeScreen() {
           and classic cocktails in a lively but casual environment. We would
           love to hear more about your experience with us!
         </Text>
+
+        {/* Images */}
         <Image
           style={styles.image}
           source={require("../img/Food1.png")}
