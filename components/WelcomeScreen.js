@@ -1,19 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   ScrollView,
   Text,
   StyleSheet,
-  TextInput,
   KeyboardAvoidingView,
   Platform,
 } from "react-native";
 
 export default function WelcomeScreen() {
-  const [firstName, onChangeFirstName] = useState("");
-  const [lastName, onChangeLastName] = useState("");
-  const [phoneNumber, onChangePhoneNumber] = useState("");
-  const [message, onChangeMessage] = useState("");
-
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -26,34 +20,6 @@ export default function WelcomeScreen() {
           and classic cocktails in a lively but casual environment. We would
           love to hear more about your experience with us!
         </Text>
-        <TextInput
-          style={styles.inputBox}
-          value={firstName}
-          onChangeText={onChangeFirstName}
-          placeholder={"First Name"}
-        />
-        <TextInput
-          // secureTextEntry={true} //for passwords
-          style={styles.inputBox}
-          value={lastName}
-          onChangeText={onChangeLastName}
-          placeholder={"Last Name"}
-        />
-        <TextInput
-          style={styles.messageInput}
-          value={message}
-          onChangeText={onChangeMessage}
-          placeholder={"Please leave a feedback"}
-          multiline={true} //for multiple lines
-          maxLength={250}
-        />
-        <TextInput
-          style={styles.inputBox}
-          value={phoneNumber}
-          onChangeText={onChangePhoneNumber}
-          placeholder={"Phone Number"}
-          keyboardType={"phone-pad"}
-        />
       </ScrollView>
     </KeyboardAvoidingView>
   );
