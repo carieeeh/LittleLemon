@@ -140,7 +140,8 @@ const MenuItems = () => {
 
 const menuStyles = StyleSheet.create({
   container: {
-    flex: 0.75,
+    flex: 1,
+    backgroundColor: "#495E57",
   },
 
   innerContainer: {
@@ -187,16 +188,16 @@ const menuStyles = StyleSheet.create({
     fontSize: 22,
     padding: 10,
     marginVertical: 8,
-    margin: 40,
-    backgroundColor: "#EDEFEE",
-    borderColor: "#EDEFEE",
+    margin: 70,
+    backgroundColor: "#F4CE14",
+    borderColor: "#F4CE14",
     borderWidth: 2,
     borderRadius: 12,
   },
   buttonText: {
     color: "#333333",
     textAlign: "center",
-    fontSize: 32,
+    fontSize: 24,
   },
   infoSection: {
     fontSize: 24,
