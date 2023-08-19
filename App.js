@@ -6,9 +6,11 @@ import {
   useColorScheme,
   useWindowDimensions,
 } from "react-native";
+
 import { useDeviceOrientation } from "@react-native-community/hooks";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import LittleLemonHeader from "./components/LittleLemonHeader";
 import LittleLemonFooter from "./components/LittleLemonFooter";
@@ -16,6 +18,9 @@ import WelcomeScreen from "./components/WelcomeScreen";
 import MenuItems from "./components/MenuItems";
 import LoginScreen from "./components/LoginScreen";
 import FeedbackForm from "./components/FeedbackForm";
+
+//Customizing Icons
+import { Ionicons } from "@expo/vector-icons";
 
 export default function App() {
   //HOOKS SAMPLES
@@ -25,6 +30,7 @@ export default function App() {
   // console.log("is orientation portrait: ", orientation.portrait);
   // console.log("is orientation landscape: ", orientation.landscape);
   const Stack = createNativeStackNavigator();
+  const Tab = createBottomTabNavigator();
 
   return (
     <NavigationContainer>
@@ -38,11 +44,32 @@ export default function App() {
       >
         <LittleLemonHeader />
 
-        <Stack.Navigator initialRouteName="Login" style={styles.container}>
+        {/* <Stack.Navigator initialRouteName="Login" style={styles.container}>
           <Stack.Screen name="Welcome" component={WelcomeScreen} />
           <Stack.Screen name="Login" component={LoginScreen} />
-        </Stack.Navigator>
+        </Stack.Navigator> */}
 
+        <Tab.Navigator
+          screenOptions={({ route }) => ({
+            tabBarIcon: ({ focused, color, size }) => {
+              let iconName;
+
+              if (route.name === "Welcome") {
+                iconName = focused
+                  ? "ios-information-circle"
+                  : "ios-information-circle-outline";
+              } else if (route.name === "Menu") {
+                iconName = "ios-list";
+              }
+              return <Ionicons name={iconName} size={size} color={color} />;
+            },
+            tabBarActiveTintColor: "#F4CE14",
+            tabBarInactiveTintColor: "gray",
+          })}
+        >
+          <Tab.Screen name="Welcome" component={WelcomeScreen} />
+          <Tab.Screen name="Menu" component={MenuItems} />
+        </Tab.Navigator>
         {/* <FeedbackForm /> */}
 
         {/* <Text>Window Dimensions</Text>
