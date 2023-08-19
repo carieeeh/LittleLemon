@@ -10,7 +10,7 @@ import {
   SectionList,
 } from "react-native";
 
-export default function LoginScreen() {
+export default function LoginScreen({ navigation }) {
   const [email, onChangeEmail] = useState("");
   const [username, onChangeUsername] = useState("");
   const [phoneNumber, onChangePhoneNumber] = useState("");
@@ -29,44 +29,47 @@ export default function LoginScreen() {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       <ScrollView style={styles.container} keyboardDismissMode="on-drag">
-        {loggedIn && <Text style={styles.headerText}>You are logged in!</Text>}
+        {/* {loggedIn && <Text style={styles.headerText}>You are logged in!</Text>}
 
-        {!loggedIn && (
-          <>
-            <Text style={styles.headerText}>Welcome to Little Lemon</Text>
-            <Text style={styles.regularText}>Login to continue </Text>
-            <TextInput
-              style={styles.inputBox}
-              value={email}
-              onChangeText={onChangeEmail}
-              placeholder={"Email"}
-              keyboardType={"email-address"}
-            />
-            <TextInput
-              // secureTextEntry={true} //for passwords
-              style={styles.inputBox}
-              value={username}
-              onChangeText={onChangeUsername}
-              placeholder={"Username"}
-            />
+        {!loggedIn && ( */}
+        <>
+          <Text style={styles.headerText}>Welcome to Little Lemon</Text>
+          <Text style={styles.regularText}>Login to continue </Text>
+          <TextInput
+            style={styles.inputBox}
+            value={email}
+            onChangeText={onChangeEmail}
+            placeholder={"Email"}
+            keyboardType={"email-address"}
+          />
+          <TextInput
+            // secureTextEntry={true} //for passwords
+            style={styles.inputBox}
+            value={username}
+            onChangeText={onChangeUsername}
+            placeholder={"Username"}
+          />
 
-            <TextInput
-              style={styles.inputBox}
-              value={phoneNumber}
-              onChangeText={onChangePhoneNumber}
-              placeholder={"Phone Number"}
-              keyboardType={"phone-pad"}
-            />
-            <TextInput
-              secureTextEntry={true}
-              style={styles.inputBox}
-              value={password}
-              onChangeText={onChangePassword}
-              placeholder={"Password"}
-            />
-          </>
-        )}
-        <Pressable onPress={() => onLogin(!loggedIn)} style={styles.button}>
+          <TextInput
+            style={styles.inputBox}
+            value={phoneNumber}
+            onChangeText={onChangePhoneNumber}
+            placeholder={"Phone Number"}
+            keyboardType={"phone-pad"}
+          />
+          <TextInput
+            secureTextEntry={true}
+            style={styles.inputBox}
+            value={password}
+            onChangeText={onChangePassword}
+            placeholder={"Password"}
+          />
+        </>
+        {/* )} */}
+        <Pressable
+          onPress={() => navigation.navigate("Welcome")}
+          style={styles.button}
+        >
           <Text style={styles.buttonText}>Log in</Text>
         </Pressable>
       </ScrollView>
