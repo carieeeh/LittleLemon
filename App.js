@@ -11,6 +11,7 @@ import { useDeviceOrientation } from "@react-native-community/hooks";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+// import { createDrawerNavigator } from "@react-navigation/drawer";
 
 import LittleLemonHeader from "./components/LittleLemonHeader";
 import LittleLemonFooter from "./components/LittleLemonFooter";
@@ -31,6 +32,7 @@ export default function App() {
   // console.log("is orientation landscape: ", orientation.landscape);
   const Stack = createNativeStackNavigator();
   const Tab = createBottomTabNavigator();
+  // const Drawer = createDrawerNavigator();
 
   return (
     <NavigationContainer>
@@ -48,6 +50,11 @@ export default function App() {
           <Stack.Screen name="Welcome" component={WelcomeScreen} />
           <Stack.Screen name="Login" component={LoginScreen} />
         </Stack.Navigator> */}
+        {/* 
+        <Drawer.Navigator useLegacyImplementation initialRouteName="Login">
+          <Drawer.Screen name="Welcome" component={WelcomeScreen} />
+          <Drawer.Screen name="Login" component={LoginScreen} />
+        </Drawer.Navigator> */}
 
         <Tab.Navigator
           screenOptions={({ route }) => ({
