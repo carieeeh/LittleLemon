@@ -17,7 +17,8 @@ PS: Once the installation is complete, you can run the React Native app, either 
 You then install the Expo Go app on your iOS or Android device. Then you connect it to the same wireless network as your computer. Once this step is complete, you scan the QR code from your terminal to open the project.
 
 Installing react community hooks with npm:
-npm install @react-native-community/hooks
+
+    npm install @react-native-community/hooks
 
 To add React Navigation to a React Native project which uses Expo, follow these instructions:
 
@@ -28,4 +29,9 @@ To add React Navigation to a React Native project which uses Expo, follow these 
     npx expo install react-native-screens react-native-safe-area-context
 
 • Install Native Stack Navigator Library:
-npm install @react-navigation/native-stack
+
+    npm install @react-navigation/native-stack
+
+To begin using the tab navigator, install this:
+
+    npm install @react-navigation/bottom-tabs
