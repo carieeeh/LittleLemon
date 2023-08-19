@@ -42,3 +42,9 @@ To add React Navigation to a React Native project which uses Expo, follow these 
 To begin using the tab navigator, install this:
 
     npm install @react-navigation/bottom-tabs
+
+To use the drawer navigator, install this:
+
+    npm install @react-navigation/drawer
+
+    npx expo install react-native-gesture-handler react-native-reanimated
