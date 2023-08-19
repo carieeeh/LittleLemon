@@ -1,6 +1,6 @@
 // Welcome Screen
 
-import React from "react";
+import * as React from "react";
 import {
   ScrollView,
   Text,
@@ -9,6 +9,7 @@ import {
   Platform,
   Image,
   View,
+  Pressable,
 } from "react-native";
 
 export default function WelcomeScreen() {
@@ -73,6 +74,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 10,
+    backgroundColor: "#495E57",
   },
   headerText: {
     paddingRight: 10,
