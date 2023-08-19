@@ -9,13 +9,16 @@ For emulator:
 
 VSCODE
 To install Expo:
-• Go to terminal and enter this command:
-npx create-expo-app TITLE
 
-• New terminal then run this command:
-npm start
+Go to terminal and enter this command:
 
-• Press a for android emulator
+    npx create-expo-app TITLE
+
+New terminal then run this command:
+
+    npm start
+
+Press a for android emulator
 
 PS: Once the installation is complete, you can run the React Native app, either on an emulator or on your physical mobile device.
 You then install the Expo Go app on your iOS or Android device. Then you connect it to the same wireless network as your computer. Once this step is complete, you scan the QR code from your terminal to open the project.
